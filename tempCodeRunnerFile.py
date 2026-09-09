@@ -1,1 +1,0 @@
-or keys[pygame.K_LEFT]
