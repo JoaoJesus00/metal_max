@@ -1,0 +1,21 @@
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Configs de editor / IDE
+.vscode/
+.idea/
+
+# Saidas de ferramentas (ex.: pyreverse / PyUML Generator)
+out/
+*.class-diagram.puml
+
+# Sistema operacional
+Thumbs.db
+.DS_Store
