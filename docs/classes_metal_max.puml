@@ -1,0 +1,74 @@
+@startuml classes_metal_max
+set namespaceSeparator none
+class "Fogo" as src.entidades.obstaculos.Fogo {
+  contador : int
+  atualizar(dt)
+  desenhar(tela, camera_x)
+}
+class "Golpe" as src.entidades.golpe.Golpe {
+  ALTURA : int
+  DURACAO : int
+  LARGURA : int
+  ativo : bool
+  rect
+  timer : int
+  acerta(alvo)
+  atualizar(dt)
+  desenhar(tela, camera_x)
+}
+class "Inimigo" as src.entidades.inimigo.Inimigo {
+  rect
+  velocidade : int
+  vivo : bool
+  atualizar(dt)
+  desenhar(tela, camera_x)
+}
+class "Jogo" as src.jogo.Jogo {
+  clock
+  estado : str
+  fonte : Font
+  fundo : NoneType
+  inimigo : NoneType
+  menu
+  obstaculos : list
+  puggy : NoneType
+  rodando : bool
+  tela
+  rodar()
+}
+class "Menu" as src.ui.menu.Menu {
+  botoes : dict
+  fonte : Font
+  fundo
+  rotulos : dict
+  tela
+  clique(pos)
+  desenhar()
+}
+class "Obstaculo" as src.entidades.obstaculos.Obstaculo {
+  perigoso : bool
+  rect
+  {abstract}atualizar(dt)
+  {abstract}desenhar(tela, camera_x)
+}
+class "Puggy" as src.entidades.puggy.Puggy {
+  direcao : int
+  golpe : NoneType
+  pos
+  rect
+  sprite : NoneType
+  atualizar(dt)
+  desenhar(tela, camera_x)
+  golpear()
+}
+class "Tronco" as src.entidades.obstaculos.Tronco {
+  {abstract}atualizar(dt)
+  desenhar(tela, camera_x)
+}
+src.entidades.obstaculos.Fogo --|> src.entidades.obstaculos.Obstaculo
+src.entidades.obstaculos.Tronco --|> src.entidades.obstaculos.Obstaculo
+src.entidades.golpe.Golpe --* src.entidades.puggy.Puggy : golpe
+src.entidades.inimigo.Inimigo --* src.jogo.Jogo : inimigo
+src.entidades.puggy.Puggy --* src.jogo.Jogo : puggy
+src.ui.menu.Menu --* src.jogo.Jogo : menu
+@enduml

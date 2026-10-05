@@ -1,0 +1,20 @@
+@startuml packages_metal_max
+set namespaceSeparator none
+package "src.entidades.golpe" as src.entidades.golpe {
+}
+package "src.entidades.inimigo" as src.entidades.inimigo {
+}
+package "src.entidades.obstaculos" as src.entidades.obstaculos {
+}
+package "src.entidades.puggy" as src.entidades.puggy {
+}
+package "src.jogo" as src.jogo {
+}
+package "src.ui.menu" as src.ui.menu {
+}
+src.entidades.puggy --> src.entidades.golpe
+src.jogo --> src.entidades.inimigo
+src.jogo --> src.entidades.obstaculos
+src.jogo --> src.entidades.puggy
+src.jogo --> src.ui.menu
+@enduml
